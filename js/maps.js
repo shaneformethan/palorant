@@ -1,15 +1,14 @@
-// Maps Listener
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function() {
     const locationLinks = document.querySelectorAll('.location-container a');
-    const mapTitle = document.querySelector('.map-description-title');
-    const mapDescription = document.querySelector('.map-description-paragraph');
+    const mapTitle = document.querySelector('.map-description h1');
+    const mapDescription = document.querySelector('.map-description p');
     const mapSlides = document.querySelector('.slider .slides');
 
-    const mapData={
+    const mapData = {
         fracture: {
             title: 'Fracture',
             description: 'A top secret research facility split apart by a failed radianite experiment. With defender options as divided as the map, the choice is yours: meet the attackers on their own turf or batten down the hatches to weather the assault.',
-            images:[
+            images: [
                 "../assets/image/maps/Fracture/1.avif",
                 "../assets/image/maps/Fracture/2.avif",
                 "../assets/image/maps/Fracture/3.avif",
@@ -74,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function(){
     };
 
     locationLinks.forEach(link => {
-        link.addEventListener('click', function(e){
+        link.addEventListener('click', function(e) {
             e.preventDefault();
 
             const map = link.getAttribute('data-map');
@@ -106,94 +105,108 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         });
     });
-});
 
+    const dotsContainer = document.querySelector(".dots-container");
+    let currIndex = 0;
+    let startX = 0;
+    let slides = [];
+    let dots = [];
+    const mapSlidesContainer = document.querySelector('.slider .slides');
 
-// Image Slider
-
-const dotsContainer= document.querySelector(".dots-container");
-let currIndex= 0;
-let startX= 0;
-let slides = [];
-let dots = [];
-const mapSlidesContainer = document.querySelector('.slider .slides');
-
-function resetTimer(){
-    clearInterval(autoSlide);
-    autoSlide = setInterval(nextSlide, 4000);
-}
-
-document.querySelector(".prev").addEventListener("click", () =>{
-    currIndex = (currIndex-1+slides.length)%slides.length;
-    updateSlider();
-    resetTimer();
-});
-
-document.querySelector(".next").addEventListener("click", () =>{
-    currIndex = (currIndex+1)%slides.length;
-    updateSlider();
-    resetTimer();
-});
-
-const slider=document.querySelector(".slider");
-
-slider.addEventListener("touchstart", e =>{
-    startX = e.touches[0].clientX;
-});
-
-slider.addEventListener("touchend", e=>{
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX-endX;
-
-    if(diff>50){
-        currIndex= (currIndex+1) % slides.length;
+    function resetTimer() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(nextSlide, 4000);
     }
-    else if(diff<-50){
-        currIndex= (currIndex-1+slides.length)%slides.length;
+
+    document.querySelector(".prev").addEventListener("click", () => {
+        currIndex = (currIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+        resetTimer();
+    });
+
+    document.querySelector(".next").addEventListener("click", () => {
+        currIndex = (currIndex + 1) % slides.length;
+        updateSlider();
+        resetTimer();
+    });
+
+    const slider = document.querySelector(".slider");
+
+    slider.addEventListener("touchstart", e => {
+        startX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener("touchend", e => {
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+
+        if (diff > 50) {
+            currIndex = (currIndex + 1) % slides.length;
+        } else if (diff < -50) {
+            currIndex = (currIndex - 1 + slides.length) % slides.length;
+        }
+        updateSlider();
+    });
+
+    let autoSlide = setInterval(nextSlide, 8000);
+
+    function nextSlide() {
+        currIndex = (currIndex + 1) % slides.length;
+        updateSlider();
     }
-    updateSlider();
-});
 
-let autoSlide = setInterval(nextSlide, 8000);
+    function updateSlider() {
+        slides = document.querySelectorAll(".slide");
+        const slideWidth = slides[0]?.clientWidth || 0;
+        mapSlidesContainer.style.transform = `translateX(-${currIndex * slideWidth}px)`;
 
-function nextSlide(){
-    currIndex = (currIndex+1)%slides.length;
-    updateSlider();
-}
+        dots.forEach(dot => dot.classList.remove("active"));
+        if (dots[currIndex]) dots[currIndex].classList.add("active");
+    }
 
-function updateSlider(){
-    slides = document.querySelectorAll(".slide");
-    const slideWidth = slides[0]?.clientWidth || 0;
-    mapSlidesContainer.style.transform = `translateX(-${currIndex * slideWidth}px)`;
+    function rebuildDots(count) {
+        dotsContainer.innerHTML = "";
+        for (let i = 0; i < count; i++) {
+            const dot = document.createElement("span");
+            dot.classList.add("dot");
+            dot.addEventListener("click", () => {
+                currIndex = i;
+                updateSlider();
+                resetTimer();
+            });
+            dotsContainer.appendChild(dot);
+        }
+        dots = document.querySelectorAll(".dot");
+    }
 
-    dots.forEach(dot => dot.classList.remove("active"));
-    if (dots[currIndex]) dots[currIndex].classList.add("active");
-}
+    window.addEventListener('load', () => {
+        const defaultMap = 'fracture';
+        const defaultLink = document.querySelector(`[data-map="${defaultMap}"]`);
 
-function rebuildDots(count) {
-    dotsContainer.innerHTML= "";
-    for (let i = 0; i < count; i++) {
-        const dot = document.createElement("span");
-        dot.classList.add("dot");
-        dot.addEventListener("click", () => {
-            currIndex = i;
+        if (defaultLink) {
+            defaultLink.click();
+        } else {
+            console.error('Default map link tidak ditemukan!');
+        }
+    });
+
+    let resizeTimeout;
+    let isResizing = false;
+
+    window.addEventListener("resize", () => {
+        isResizing = true;
+
+        clearTimeout(resizeTimeout);
+
+        resizeTimeout = setTimeout(() => {
+            isResizing = false;
             updateSlider();
-            resetTimer();
-        });
-        dotsContainer.appendChild(dot);
-    }
-    dots = document.querySelectorAll(".dot");
-}
+        }, 100);
+    });
 
-// Default:
-window.addEventListener('load', () => {
-    const defaultMap = 'fracture'; // Ganti dengan peta default yang ingin ditampilkan
-    const defaultLink = document.querySelector(`[data-map="${defaultMap}"]`);
-
-    if (defaultLink) {
-        // Pastikan klik event dipicu setelah semua elemen tersedia
-        defaultLink.click();
-    } else {
-        console.error('Default map link tidak ditemukan!');
+    function updateSliderIfNotResizing() {
+        if (!isResizing) {
+            updateSlider();
+        }
     }
 });
