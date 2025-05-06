@@ -1,0 +1,140 @@
+.news-highlight{
+    overflow: hidden;
+    line-height: 0%;
+    position: relative;
+}
+
+.news-highlight-bg{
+    margin-top: 4rem;
+    width: 100%;
+}
+
+.news-highlight-container{
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    position: absolute;
+    margin-top: 4rem;
+    padding: 4rem 6rem 8.5rem 6rem;
+    top:0;
+    left:0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 3rem;
+    width:100%;
+    height:100%;
+}
+
+.news-highlight-container:hover{
+    transform: scale(1.02);
+}
+
+.news-highlight-text{
+    width: 50%;
+}
+
+.news-highlight-text h1{
+    color: white;
+}
+
+.highlight-title{
+    top:0;
+    font-family: vermin-vibes;
+    line-height: 4rem;
+    width: 100%;
+    font-size:xxx-large;
+    font-weight:1000;
+    color: #eeeeee;
+    width: 100%;
+}
+
+.highlight-text h2{
+    line-height: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    color: #eeeeee;
+}
+
+.highlight-description{
+    line-height: 1.5rem;
+    color: #cdcdcd;
+}
+
+.viewall{
+    justify-self: start;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.viewall p{
+    color: #eeeeee;
+}
+
+.news-highlight-thumbnail{
+    width: 50%;
+}
+
+.news-container{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    line-height: 0%;
+}
+
+.news-content{
+    padding: 4rem 6rem 6rem 6rem;
+    position:absolute;
+    top:0;
+}
+
+.news-background{
+    height: 100%;
+}
+
+.latest-news-container{
+    width: 100%;
+    padding: 6rem 6rem 5rem 6rem;
+    position: absolute;
+}
+
+.news-row{
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+    width: 100%;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.news img{
+    transition: transform 0.3s ease;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.news h2{
+    line-height: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.news-headline{
+    font-size: medium;
+    color: #575757;
+}
+
+.news{
+    text-decoration: none;
+    width: 33%;
+    line-height: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.category-dates{
+    font-size: small;
+    color: #575757;
+}
+
+.news:hover {
+    transform: scale(1.05);
+}

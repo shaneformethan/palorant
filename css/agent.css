@@ -1,0 +1,88 @@
+.agent{
+    line-height: 1.5;
+    background-image: url('../assets/image/bg-img.jpg');
+    padding: 7rem 6rem 3rem 6rem;
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+}
+
+.avatar{
+    object-fit: contain;
+    height: 95%;
+}
+
+.agent h1{
+    font-family: vermin-vibes;
+    font-size: xxx-large;
+    margin-bottom: 0.2rem;
+}
+
+.agent p{
+    font-size: medium;
+}
+
+.role{
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 1.3rem;
+}
+
+.role img{
+    height: 30px;
+}
+
+.role p{
+    font-size: larger;
+    font-weight: bold;
+    color: #565656;
+    font-style: italic;
+}
+
+.name{
+    width: 30%;
+    align-self: center;
+}
+
+.skill{
+    width: 40%;
+    height: 350px;
+    background-color: #565656;
+    border-radius: 10px;
+    padding: 2rem 1rem 2rem 1rem;
+}
+
+.skill-icon{
+    display: flex;
+    justify-content: space-between;
+    gap: 1.3rem;
+    height: 25%;
+    margin-bottom: 2rem;
+}
+
+.skill h2, .skill p{
+    padding: 0 1rem 0 1rem;
+    margin-top: 1rem;
+    text-align: center;
+    color: #eeeeee;
+}
+
+.icon {
+    height: 100%;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+}
+  
+.icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+  
+.icon.active {
+    opacity: 1;
+    border-bottom: 2px solid orange;
+}
