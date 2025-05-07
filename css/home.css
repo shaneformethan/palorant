@@ -13,10 +13,8 @@
 }
 
 .mainvideo{
-    object-fit: cover;
     margin-top: 4rem;
-    height: 710px;
-    width: 1080px;
+    width: 100%;
 }
 
 .black-overlay{
