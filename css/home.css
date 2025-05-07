@@ -32,11 +32,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0% 30% 10% 30%;
+    padding: 0% 0 10% 0;
 }
 
 .logo-title{
-    padding-bottom: 2.2rem;
+    padding: 0;
+    line-height: normal;
+    text-align: center;
     width: 100%;
     color: #eeeeee;
     font-family: vermin-vibes;
@@ -47,16 +49,17 @@
     color: #cdcdcd;
     font-weight: lighter;
     text-decoration: none;
-    margin-top: 2rem;
     font-size:x-large;
     letter-spacing: 5px;
     text-align: center;
+    margin-top: 1.5rem;
+    line-height: normal;
 }
 
 .download-button{
     background-color: #ffbf29;
     margin-top: 3rem;
-    padding: 1.8rem 2rem 1.8rem 2rem;
+    padding: 1.8rem 2rem;
     color: #222222;
     font-size: larger;
     font-weight:bolder;
@@ -68,8 +71,12 @@
 /* Latest News */
 
 .latest-news{
+    background-image: url('../assets/image/bg-img.jpg');
     display: flex;
+    flex-direction: column;
     align-items: baseline;
+    width: 100%;
+    padding: 6rem 6rem 5rem 6rem;
 }
 
 .latest-news-title{
@@ -80,55 +87,26 @@
     color: #222222;
 }
 
-.latest-news-background{
-    position: relative;
+.news-content{
     width: 100%;
+    background-image: none !important;
+    padding: 0 !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-color: #565656 rgba(0,0,0,0.1);
 }
 
-.latest-news-container{
-    width: 100%;
-    padding: 6rem 6rem 5rem 6rem;
-    position: absolute;
-}
-
-.latest-news-row{
-    width: 100%;
-    display: flex;
-    gap: 2.5rem;
-}
-
-.news img{
-    
-    width: 100%;
-    margin-bottom: 0.5rem;
-}
-
-.news h2{
-    line-height: 2rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.news-headline{
-    font-size: medium;
-    color: #575757;
-}
-
-.news{
-    width: 33%;
-    line-height: 1.5rem;
-}
-
-.category-dates{
-    font-size: small;
-    color: #575757;
-}
 
 /* Brief-Description */
 
 .description{
+    background-image: url('../assets/image/home/description-image.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 710px;
+    background-repeat: no-repeat;
     display: flex;
-    height: 100%;
     /* overflow: hidden; */
     align-items: end;
     justify-content: end;
@@ -153,45 +131,32 @@
     color: #cdcdcd;
 }
 
-.description-background{
-    position: relative;
-    width: 100%;
-}
-
 .description-container{
-    width: 55%;
+    width: 60%;
     align-items: left;
     line-height: 1rem;
     display: flex;
-
-    padding: 5rem 5rem 5rem 5rem;
-    position: absolute;
+    padding: 5rem 1.6rem;
     z-index: 5;
 }
 
 /* Best Agent */
 
 .best-agent{
-    position: relative;
+    display: flex;
     overflow: hidden;
     width: 100%;
     line-height: 0%;
+    background-color: #e8e4de;
 }
 
 .best-agent-container{
-    width: 55%;
+    width: 50%;
     height: 100%;
-    padding: 6rem 6rem 5rem 6rem;
+    padding: 5rem 0rem 5rem 5rem;
     top: 0;
     left: 0;
     z-index: 10;
-    position: absolute;
-}
-
-.best-agent-bg{
-    z-index: -1;
-    width: 100%;
-    position: relative;
 }
 
 .best-agent-title{
@@ -203,6 +168,12 @@
     font-weight:1000;
     color: #222222;
     width: 100%;
+}
+
+.best-agent-vid{
+    object-fit: contain;
+    width: 50%;
+    align-self: flex-end;
 }
 
 .best-agent-description{
@@ -282,7 +253,157 @@
     cursor: pointer;
 }
 
+.viewall{
+    align-self: flex-end;
+}
+
+.viewall.left{
+    margin-top: 1rem;
+    align-self: flex-start ;
+}
+
+.viewall a{
+    font-size: medium;
+}
+
+.viewall p{
+    color: #222222 !important;
+}
+
 .viewall a:hover{
     text-decoration: underline;
     transition: all 0.3s ease;
+}
+
+@media (max-width: 1000px) {
+    .best-agent{
+        flex-direction: column-reverse;
+    }
+
+    .best-agent-container{
+        padding: 2rem 5rem;
+        width: 100%;
+    }
+
+    .best-agent-vid{
+        padding-right: 4rem;
+        object-fit: contain;
+        align-self: center;
+        max-width: 600px;
+        min-width: 400px;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainvideo{
+        margin-top: 3.15rem;
+    }
+
+    .black-overlay{
+        margin-top: 3.2rem;
+    }
+
+    .logo-title{
+        font-size: 3.1rem;
+    }
+
+    .latest-news-title,
+    .best-agent-title,
+    .description-title{
+        font-size: 2.1rem;
+    }
+    
+    .subtitle{
+        font-size:medium;
+    }
+    
+    .download-button{
+        margin-top: 2rem;
+        padding: 1.3rem 1.5rem;
+        font-size: medium;
+    }
+
+    .latest-news{
+        padding: 4rem;
+    }
+
+    .description-container{
+        justify-content: center;
+        width: 100%;
+        padding: 4rem 4rem;
+    }
+
+    .description-title{
+        line-height: 1.5;
+    }
+
+    .description-paragraph{
+        font-size: medium;
+    }
+ 
+    .best-agent-statistics p{
+        font-size: small;
+    }
+
+    .percentage{
+        font-size: x-large !important;
+    }
+
+    .best-agent-statistics-container{
+        gap: 0.7rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .description-paragraph{
+        font-size: small;
+    }
+
+    .description-container{
+        padding: 2rem 2rem;
+    }
+
+    .description{
+        height: 500px;
+    }
+
+    .logo-title{
+        font-size: 2.1rem;
+    }
+
+    .latest-news-title,
+    .best-agent-title,
+    .description-title{
+        font-size: 1.8rem;
+    }
+    
+    .subtitle{
+        margin-top: 0.5rem;
+        font-size: 0.7rem;
+    }
+    
+    .download-button{
+        margin-top: 1rem;
+        padding: 0.9rem 1.2rem;
+        font-size: 0.7rem;
+    }
+    
+    .news{
+        min-width: 250px !important;
+    }
+
+    .best-agent-container{
+        padding: 2.5rem;
+    }
+
+    .best-agent-name i{
+        font-size: 4rem;
+    }
+
+    .best-agent-statistics p{
+        font-size: 11px;
+    }
 }

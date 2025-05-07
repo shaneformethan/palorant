@@ -97,7 +97,6 @@
 
 .latest-news-container{
     width: 100%;
-    
 }
 
 .news img{
@@ -178,6 +177,10 @@
 }
 
 @media (max-width:480px) {
+    .latest-news{
+        padding: 3rem 2rem;
+    }
+
     .news-content{
         padding: 2.5rem;
     }

@@ -113,12 +113,12 @@
     margin-top: 2rem;
     margin-bottom: 1.5rem;
     display: flex;
-    flex-shrink: 0;
     transition: transform 0.6s ease-in-out;
 }
 
 .slide {
     width: 100%;
+    flex-shrink: 0;
     height: auto;
     object-fit: cover;
 }
