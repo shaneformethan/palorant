@@ -31,7 +31,6 @@ EEEEEE
     height: 0.5rem;
 }
 
-
 .title-rect{
     width:15rem;
     border-bottom: 0.5rem solid #ffbf29;
@@ -402,7 +401,7 @@ ul{
         font-size: 10px;
     }
 
-    br{
+    .br{
         display: none;
     }
 }

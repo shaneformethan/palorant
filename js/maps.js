@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const locationLinks = document.querySelectorAll('.location-container a');
     const mapTitle = document.querySelector('.map-description h1');
     const mapDescription = document.querySelector('.map-description p');
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     locationLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
 
             const map = link.getAttribute('data-map');
@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             mapSlides.innerHTML = '';
             let loadedCount = 0;
+
             mapInfo.images.forEach((image, index) => {
                 const img = document.createElement('img');
                 img.src = image;
@@ -98,10 +99,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 };
                 mapSlides.appendChild(img);
+            });
 
-                document.querySelector('.map-description').scrollIntoView({
-                    behavior: 'smooth'
-                });
+            const scrollTarget = document.querySelector('.map-description');
+            const offset = 3.2 * parseFloat(getComputedStyle(document.documentElement).fontSize); // Convert rem to px
+            const elementTop = scrollTarget.getBoundingClientRect().top + window.pageYOffset;
+
+            window.scrollTo({
+                top: elementTop - offset,
+                behavior: 'smooth'
             });
         });
     });

@@ -1,5 +1,5 @@
 .article{
-    padding: 8rem 5rem 5rem 5rem;
+    padding: 5% 5%;
     line-height: normal;
     background-image: url('../assets/image/bg-img.jpg');
     background-repeat:no-repeat;
@@ -12,21 +12,22 @@
     position: absolute;
     z-index: 1;
     width: 100%;
-    height: 500px;
+    height: 50vw;
     filter: blur(10px) opacity(90%);
     object-fit: cover;
 }
 
 .article img{
+    margin-top: 4rem;
+    width: 100%;
+    object-fit: contain;
+    justify-self: center;
     position: relative;
     z-index: 10;
-    object-fit:cover;
-    width: 100%;
-    height: 475px;
-    margin-bottom: 4rem;
 }
 
 .article h1{
+    margin-top: 5%;
     text-align: center;
     font-size: xxx-large;
 }
@@ -40,7 +41,7 @@
 }
 
 .hl{
-    border: 1.5px solid #222222;
+    border: 1.35px solid #222222;
     width: 90%;
     justify-self: center;
     margin-bottom: 3rem;
@@ -63,4 +64,61 @@ ul{
 .article blockquote{
     margin-left: 35px;
     font-style: italic;
+}
+
+@media (max-width:768px) {
+    .article{
+        padding: 0 5% 5% 5%;
+    }
+
+    .subtitle{
+        line-height: 1.5;
+    }
+
+    .article img{
+        margin-top: 15%;
+    }
+
+    .article h1{
+        font-size: xx-large;
+    }
+
+    .article h2{
+        font-size: x-large;
+    }
+
+    .article h3{
+        font-size: x-large;
+    }
+
+    .article p, .article blockquote, .article li{
+        font-size: medium;
+    }
+
+    .blur{
+        height: 45vw;
+    }
+}
+
+@media (max-width:480px) {
+    
+    .article{
+        padding: 0 6% 5% 6%;
+    }
+
+    .article img{
+        margin-top: 25%;
+    }
+
+    .text{
+        width: 90%;
+    }
+
+    .blur{
+        height: 60vw;
+    }
+
+    .article h1{
+        font-size: x-large;
+    }
 }

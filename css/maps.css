@@ -165,7 +165,7 @@
     display: inline-block;
 }
 
-.active{
+.dot.active{
     background-color: #535353;
 }
 
