@@ -70,8 +70,12 @@
 }
 
 .news-highlight-thumbnail{
-    height: 310px;
-    object-fit:cover;
+    max-height: 310px;
+    min-width: 400px;
+    max-width: 600px;
+    width: 100%;
+    object-fit: cover;
+    
 }
 
 .news-container{
@@ -147,6 +151,7 @@
     .news-highlight-thumbnail{
         width: 100%;
         min-width: 0;
+        max-width: none;
     }
 
     .news-highlight-text{
